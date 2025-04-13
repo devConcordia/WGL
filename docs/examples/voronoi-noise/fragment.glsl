@@ -3,6 +3,7 @@ precision highp float;
 uniform float zoom;
 uniform vec2 resolution;
 uniform vec3 background;
+uniform vec3 foreground;
 
 
 /// @ref https://www.shadertoy.com/view/MslGD8
@@ -50,6 +51,11 @@ void main() {
 	
 	float s = clamp( v, 0.0, 1.0 );
 	
-    gl_FragColor = vec4( background + vec3( s ), 1.0 );
+	//gl_FragColor = vec4( (foreground + background * vec3( s )) , 1.0 );
+	gl_FragColor = vec4( vec3( 1.0 - s ) * .75, 1.0 );
+	
+//	float s = 1.0 - clamp( v, 0.0, 1.0 );
+	
+//	gl_FragColor = vec4( background - vec3( s ), 1.0 );
 	
 }
