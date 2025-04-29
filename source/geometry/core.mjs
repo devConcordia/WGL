@@ -1,19 +1,19 @@
-/** 
+
+/** index_lines_remove_duplicate
  *
  */
-function index_lines_remove_duplicate( input ) {
+export function index_lines_remove_duplicate( input ) {
 	
-	var output = new Array();
+	let output = new Array();
+	let index = new Object;
 	
-	var index = new Object;
-	
-	for( var i = 0; i < input.length; i += 2 ) {
+	for( let i = 0; i < input.length; i += 2 ) {
 		
-		var a = input[i  ],
+		let a = input[i  ],
 			b = input[i+1];
 		
-		var k1 = a +','+ b;
-		var k2 = b +','+ a;
+		let k1 = a +','+ b;
+		let k2 = b +','+ a;
 		
 		if( k1 in index || k2 in index ) continue;
 		
@@ -23,9 +23,7 @@ function index_lines_remove_duplicate( input ) {
 		
 	}
 	
-	
 	return output;
 	
 }
 
-export { index_lines_remove_duplicate }
