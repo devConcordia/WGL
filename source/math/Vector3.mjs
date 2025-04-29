@@ -3,6 +3,10 @@
  */
 export default class Vector3 extends Float32Array {
 
+	static X = new Vector3( 1, 0, 0 );
+	static Y = new Vector3( 0, 1, 0 );
+	static Z = new Vector3( 0, 0, 1 );
+	
 	constructor( x = 0, y = x, z = x ) {
 
 		super([ x, y, z ]);
@@ -234,22 +238,22 @@ export default class Vector3 extends Float32Array {
 	
     /* */
 
-	static add( a, b ) { return new Vector3( ...a ).add( ...b ) }
-	static sub( a, b ) { return new Vector3( ...a ).sub( ...b ) }
-	static mul( a, b ) { return new Vector3( ...a ).mul( ...b ) }
-	static div( a, b ) { return new Vector3( ...a ).div( ...b ) }
+	static Add( a, b ) { return new Vector3( ...a ).add( ...b ) }
+	static Sub( a, b ) { return new Vector3( ...a ).sub( ...b ) }
+	static Mul( a, b ) { return new Vector3( ...a ).mul( ...b ) }
+	static Div( a, b ) { return new Vector3( ...a ).div( ...b ) }
 	
-	static negate( a ) { return new Vector3( ...a ).negate() }
+	static Negate( a ) { return new Vector3( ...a ).negate() }
 	
-	static normalize( a ) { return new Vector3( ...a ).normalize() }
+	static Normalize( a ) { return new Vector3( ...a ).normalize() }
 	
-	static length( a ) { return new Vector3( ...a ).length() }
+	static Length( a ) { return new Vector3( ...a ).length() }
 	
-	static dot( a ) { return new Vector3( ...a ).dot( b ) }
+	static Dot( a ) { return new Vector3( ...a ).dot( b ) }
 	
-	static distance( a, b ) { return new Vector3( ...a ).dot( b ) }
+	static Distance( a, b ) { return new Vector3( ...a ).dot( b ) }
 	
-	static cross( a, b ) { return new Vector3( ...a ).cross( b ) }
+	static Cross( a, b ) { return new Vector3( ...a ).cross( b ) }
 
 	/** Reflect
 	 *
@@ -336,8 +340,4 @@ export default class Vector3 extends Float32Array {
 	
 	}
 	
-	static X = new Vector3( 1, 0, 0 );
-	static Y = new Vector3( 0, 1, 0 );
-	static Z = new Vector3( 0, 0, 1 );
-	
-};
+}

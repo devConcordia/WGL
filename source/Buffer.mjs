@@ -1,7 +1,6 @@
 
 export default class WGLBuffer {
 	
-	
 	/** WGLBuffer
 	 *
 	 *  @param {WebGLRenderingContext} gl

@@ -3,8 +3,6 @@ import Program from './Program.mjs';
 import Buffer from './Buffer.mjs';
 import Texture from './Texture.mjs';
 
-
-
 /** Renderer
  *
  */

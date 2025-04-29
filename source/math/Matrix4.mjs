@@ -16,7 +16,7 @@ export default class Matrix4 extends Float32Array {
 	 *
 	 *	@param {TypedArray | Number[16]} args
 	 */
-	 constructor( args = M4_IDENTITY ) {
+	constructor( args = M4_IDENTITY ) {
 
 		if( arguments.length == 16 ) args = arguments;
 
