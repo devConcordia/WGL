@@ -1,7 +1,7 @@
 
 import FileLoader from "./FileLoader.mjs";
 
-import WGL from "../../../index.mjs";
+import WGL from "../../../source/index.mjs";
 
 
 const WIDTH = 680;

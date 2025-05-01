@@ -1,5 +1,5 @@
 
-import WGL from "../../../index.mjs";
+import WGL from "../../../source/index.mjs";
 
 
 
