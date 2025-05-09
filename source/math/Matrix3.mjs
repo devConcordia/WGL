@@ -209,26 +209,28 @@ export default class Matrix3 extends Float32Array {
 	 */
 	invert() {
 		
-		let output = new Matrix3();
-		
-		let [ a, b, c, d, e, f, g, h, i ] = this;
-	//	let [ a, d, g, b, e, h, c, f, i  ] = this;
-		
+		let [ a, b, c, 
+			  d, e, f, 
+			  g, h, i ] = this;
 		
 		/// det
 		let t = a*e*i + b*f*g + c*d*h - c*e*g - b*d*i - a*f*h;
 		
 		if( t != 0 ) {
 			
-			output.set([
+			this.set([
 				 (e * i - f * h)/t, -(b * i - c * h)/t,  (b * f - c * e)/t,
 				-(d * i - f * g)/t,  (a * i - c * g)/t, -(a * f - c * d)/t,
 				 (d * h - e * g)/t, -(a * h - b * g)/t,  (a * e - b * d)/t
 			]);
 			
+		} else {
+			
+			this.set( M3_IDENTITY );
+			
 		}
 		
-		return output;
+		return this;
 		
 	}
 	

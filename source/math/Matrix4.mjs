@@ -1,5 +1,6 @@
 
 import Vector3 from './Vector3.mjs';
+import Matrix3 from './Matrix3.mjs';
 
 const M4_IDENTITY = [ 1, 0, 0, 0,
  					  0, 1, 0, 0,
@@ -54,6 +55,25 @@ export default class Matrix4 extends Float32Array {
 	set y( v ) { this[ 13 ] = v }
 	set z( v ) { this[ 14 ] = v }
 
+	/** getMatrix3
+	 *	
+	 *	@return {Matrix3}
+	 */
+	getMatrix3() {
+		
+		let [ a, b, c, d, 
+			  e, f, g, h, 
+			  i, j, k, l,
+			  m, n, o, p  ] = this;
+		
+		return new Matrix3([
+			a, b, c,
+			e, f, g,
+			i, j, k
+		]);
+
+	}
+	
 	/** det
 	 *
 	 *	@return {Number | Boolean}
@@ -111,17 +131,10 @@ export default class Matrix4 extends Float32Array {
 	 */
 	invert() {
 		
-		let output = new Matrix4();
-		
 		let [ a, b, c, d, 
 			  e, f, g, h, 
 			  i, j, k, l,
 			  m, n, o, p  ] = this;
-		
-	//	let [ a, e, i, m, 
-	//		  b, f, j, n, 
-	//		  c, g, k, o,
-	//		  d, h, l, p  ] = this;
 		
 		let t1 = g*l*n - h*k*n + h*j*o - f*l*o - g*j*p + f*k*p,
 			t2 = d*k*n - c*l*n - d*j*o + b*l*o + c*j*p - b*k*p,
@@ -129,7 +142,7 @@ export default class Matrix4 extends Float32Array {
 			t4 = d*g*j - c*h*j - d*f*k + b*h*k + c*f*l - b*g*l;
 
 		const det = a*t1 + e*t2 + i*t3 + m*t4;
-
+		
 		if ( det !== 0 ) {
 			
 			this[ 0 ] = t1/det;
@@ -152,14 +165,18 @@ export default class Matrix4 extends Float32Array {
 			this[ 14 ] = ( d*f*i - b*h*i - d*e*j + a*h*j + b*e*l - a*f*l )/det;
 			this[ 15 ] = ( b*g*i - c*f*i + c*e*j - a*g*j - b*e*k + a*f*k )/det;
 			
+		} else {
+			
+			this.set( M4_IDENTITY );
+			
 		}
 
 		return this;
 
 	}
-
 	
-	multiply( m ) {
+	
+	multiply( b ) {
 		
 		/// clone
 		let a = this.slice();
@@ -221,10 +238,10 @@ export default class Matrix4 extends Float32Array {
 
     rotateX( rad ) {
 
-		var s = Math.sin( rad ),
+		let s = Math.sin( rad ),
 			c = Math.cos( rad );
 
-//        this.multiply([
+//		this.multiply([
 //			1, 0, 0, 0, 
 //			0, c,-s, 0, 
 //			0, s, c, 0, 
@@ -244,10 +261,10 @@ export default class Matrix4 extends Float32Array {
 
 	rotateY( rad ) {
 
-		var s = Math.sin( rad ),
+		let s = Math.sin( rad ),
 			c = Math.cos( rad );
 
-//        this.multiply([
+//		this.multiply([
 //			c, 0, s, 0,
 //			0, 1, 0, 0,
 //		   -s, 0, c, 0,
@@ -324,7 +341,8 @@ export default class Matrix4 extends Float32Array {
     	return this;
 
     }
-
+	
+	
 	static Multiply( a, b ) {
 		
 		return new Matrix4( a ).multiply( b );
