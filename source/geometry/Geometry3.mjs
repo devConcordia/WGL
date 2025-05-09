@@ -321,7 +321,7 @@ export default class Geometry3 extends Array {
 
 	}
 	
-	static Sphere( rx = 1, ry = 1, rz = 1, latitude = 8, longitude = 16 ) {
+	static Sphere( rx = 1, ry = 1, rz = 1, latitude = 16, longitude = 32 ) {
 		
 		let PI_LAT = Math.PI/(latitude-1),
 			PI2_LON = 2 * Math.PI/longitude;
