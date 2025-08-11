@@ -45,27 +45,27 @@ window.addEventListener('load', function() {
 	
 	
 	addTab( 'Geometry', function() {
-		changeIFrame( 'geometry/index.html' );
+		changeIFrame( 'examples/geometry/index.html' );
 	});
 	
 	addTab( 'Voronoi Noise', function() {
-		changeIFrame( 'voronoi-noise/index.html' );
+		changeIFrame( 'examples/voronoi-noise/index.html' );
 	});
 	
 	addTab( 'Sobel Filter', function() {
-		changeIFrame( 'sobel-image/index.html' );
+		changeIFrame( 'examples/sobel-image/index.html' );
 	});
 	
 	addTab( 'ShaderToy', function() {
-		changeIFrame( 'shadertoy/index.html' );
+		changeIFrame( 'examples/shadertoy/index.html' );
 	});
 	
 	addTab( 'Prism', function() {
-		changeIFrame( 'prism/index.html' );
+		changeIFrame( 'examples/prism/index.html' );
 	});
 	
 	addTab( 'Phong Light', function() {
-		changeIFrame( 'phong/index.html' );
+		changeIFrame( 'examples/phong/index.html' );
 	});
 	
 	
