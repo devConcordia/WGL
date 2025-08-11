@@ -14,7 +14,7 @@ uniform float     iTime;                 // shader playback time (in seconds)
 void main(){
 	vec3 c;
 	float l,z=t;
-	for(int i=0;i<3;i++) {
+	for(int i=0;i<32;i++) {
 		vec2 uv,p=gl_FragCoord.xy/r;
 		uv=p;
 		p-=.5;

@@ -43,8 +43,8 @@ export default class Matrix3 extends Float32Array {
 	 */
 	det() {
 		
-	//	let [ a, b, c, d, e, f, g, h, i ] = this;
-		let [ a, d, g, b, e, h, c, f, i  ] = this;
+		let [ a, b, c, d, e, f, g, h, i ] = this;
+	//	let [ a, d, g, b, e, h, c, f, i  ] = this;
 		
 		return a*e*i + b*f*g + c*d*h - c*e*g - b*d*i - a*f*h; 
 		
@@ -212,6 +212,8 @@ export default class Matrix3 extends Float32Array {
 		let [ a, b, c, 
 			  d, e, f, 
 			  g, h, i ] = this;
+		
+	//	let [ a, d, g, b, e, h, c, f, i  ] = this;
 		
 		/// det
 		let t = a*e*i + b*f*g + c*d*h - c*e*g - b*d*i - a*f*h;

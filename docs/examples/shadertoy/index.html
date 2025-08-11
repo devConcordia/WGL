@@ -4,29 +4,30 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<script type="module" src="main.mjs" ></script>
 		<style> 
-			* { padding:0; margin:0; } 
+			* { padding:0; margin:0; font-family:Arial }
 			
+			p { padding:5px; font-size:1.25em; }
 			a { text-decoration:none; color:#0e86e8; }
 			
-			ul { list-style:none; overflow-y:scroll; }
+			ul { list-style:none; }
 			li { padding:10px; cursor:pointer; }
 			li:nth-of-type(odd) { background-color:#fafafa; }
 			li:target { background:#eee; }
 			
 			
 			.container {
+				display:flex;
 				width:100vw;
 				height:100vh;
-				display:flex;
 			}
 			
-			.container > div {  }
+			div#index {
+				overflow-y:scroll;
+			}
 			
-			.container > div#main { 
-				display:flex;
-				justify-content: center;
-				align-items: center;
+			div#main {
 				width:100%;
+				text-align:center;
 				background:#eee; 
 			}
 			
@@ -36,8 +37,11 @@
 		
 		<div class="container" >
 			<div id="index" ></div>
-			<div id="main" ></div>
+			<div id="main" >
+				<p>Esses são alguns testes implementando os exemplos do ShaderToy.</p>
+				<p>Selecione um item no indice à esquerada.</p>
+				<p>Visite a página original em <a id="linkShaderToy" href="https://www.shadertoy.com/">ShaderToy</a></p>
+			</div>
 		</div>
-		
 	</body>
 </html>

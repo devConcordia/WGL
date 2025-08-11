@@ -33,9 +33,10 @@ window.addEventListener('load', async function() {
 	
 
 	let VoronoiData = new Object({
-		zoom: 32.0,
-		foreground: new WGL.Color( 0x9007f2 ),
-		background: new WGL.Color( 0x04b545 ),
+		zoom: 16.0,
+		background: new WGL.Color( 0x0a98bf ),
+		foreground: new WGL.Color( 0x000000 ),
+	//	background: new WGL.Color( 0x04b545 ),
 		
 	//	background: new WGL.Color( 0x0576f7 ),
 	//	background: new WGL.Color( 0x05cbf7 ),

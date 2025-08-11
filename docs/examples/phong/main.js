@@ -53,6 +53,12 @@ window.addEventListener('load', async function() {
 		index: webgl.createBuffer( sphereBuffer.index )
 	};
 	
+	SphereData.model.rotateAxis( Math.PI/6, WGL.Vector3.X );
+	SphereData.model.rotateAxis( Math.PI/6, WGL.Vector3.Y );
+	
+//	SphereData.model.rotateX( Math.PI/6 );
+//	SphereData.model.rotateY( Math.PI/6 );
+	
 	let lightPosition = new WGL.Vector3( 5, 0, 0 );
 	
 	///

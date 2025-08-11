@@ -80,15 +80,15 @@ export default class Matrix4 extends Float32Array {
 	 */
 	det() {
 
-		let [ a, b, c, d, 
-			  e, f, g, h, 
-			  i, j, k, l,
-			  m, n, o, p  ] = this;
+	//	let [ a, b, c, d, 
+	//		  e, f, g, h, 
+	//		  i, j, k, l,
+	//		  m, n, o, p  ] = this;
 		
-	//	let [ a, e, i, m, 
-	//		  b, f, j, n, 
-	//		  c, g, k, o,
-	//		  d, h, l, p  ] = this;
+		let [ a, e, i, m, 
+			  b, f, j, n, 
+			  c, g, k, o,
+			  d, h, l, p  ] = this;
 		
 		return m*( d*g*j - c*h*j - d*f*k + b*h*k + c*f*l - b*g*l) +
 			   n*( a*g*l - a*h*k + d*e*k - c*e*l + c*h*i - d*g*i) +
@@ -131,10 +131,15 @@ export default class Matrix4 extends Float32Array {
 	 */
 	invert() {
 		
-		let [ a, b, c, d, 
-			  e, f, g, h, 
-			  i, j, k, l,
-			  m, n, o, p  ] = this;
+	//	let [ a, b, c, d, 
+	//		  e, f, g, h, 
+	//		  i, j, k, l,
+	//		  m, n, o, p  ] = this;
+		
+		let [ a, e, i, m, 
+			  b, f, j, n, 
+			  c, g, k, o,
+			  d, h, l, p  ] = this;
 		
 		let t1 = g*l*n - h*k*n + h*j*o - f*l*o - g*j*p + f*k*p,
 			t2 = d*k*n - c*l*n - d*j*o + b*l*o + c*j*p - b*k*p,
@@ -241,19 +246,19 @@ export default class Matrix4 extends Float32Array {
 		let s = Math.sin( rad ),
 			c = Math.cos( rad );
 
-//		this.multiply([
-//			1, 0, 0, 0, 
-//			0, c,-s, 0, 
-//			0, s, c, 0, 
-//			0, 0, 0, 1
-//		]);
-
-        this.multiply([
+		this.multiply([
 			1, 0, 0, 0, 
-			0, c, s, 0, 
-			0,-s, c, 0, 
+			0, c,-s, 0, 
+			0, s, c, 0, 
 			0, 0, 0, 1
 		]);
+
+   //    this.multiply([
+	//		1, 0, 0, 0, 
+	//		0, c, s, 0, 
+	//		0,-s, c, 0, 
+	//		0, 0, 0, 1
+	//	]);
 
 		return this
 
@@ -264,19 +269,19 @@ export default class Matrix4 extends Float32Array {
 		let s = Math.sin( rad ),
 			c = Math.cos( rad );
 
-//		this.multiply([
-//			c, 0, s, 0,
-//			0, 1, 0, 0,
-//		   -s, 0, c, 0,
-//		    0, 0, 0, 1
-//		]);
-
-        this.multiply([
-			c, 0,-s, 0,
+		this.multiply([
+			c, 0, s, 0,
 			0, 1, 0, 0,
-		    s, 0, c, 0,
+		   -s, 0, c, 0,
 		    0, 0, 0, 1
 		]);
+
+    //   this.multiply([
+	//		c, 0,-s, 0,
+	//		0, 1, 0, 0,
+	//	    s, 0, c, 0,
+	//	    0, 0, 0, 1
+	//	]);
 
 		return this
 
@@ -287,19 +292,19 @@ export default class Matrix4 extends Float32Array {
 		var s = Math.sin( rad ),
 			c = Math.cos( rad );
 
-   //    this.multiply([
-	//		c,-s, 0, 0,
-	//		s, c, 0, 0,
-	//		0, 0, 1, 0,
-	//		0, 0, 0, 1
-	//	]);
-
-        this.multiply([
-			c, s, 0, 0,
-		   -s, c, 0, 0,
+       this.multiply([
+			c,-s, 0, 0,
+			s, c, 0, 0,
 			0, 0, 1, 0,
 			0, 0, 0, 1
 		]);
+
+    //    this.multiply([
+	//		c, s, 0, 0,
+	//	   -s, c, 0, 0,
+	//		0, 0, 1, 0,
+	//		0, 0, 0, 1
+	//	]);
 
 		return this
 
@@ -324,19 +329,19 @@ export default class Matrix4 extends Float32Array {
 		    tx = t * x,
             ty = t * y;
 
-//		this.multiply([
-//          tx * x + c,     tx * y - s * z,  tx * z + s * y, 0,
-//			tx * y + s * z, ty * y + c,      ty * z - s * x, 0,
-//			tx * z - s * y, ty * z + s * x,  t * z * z + c,  0,
-//			0,              0,               0,              1
-//        ]);
-
 		this.multiply([
-            tx * x + c,		tx * y + s * z,	tx * z - s * y,	0,
-			tx * y - s * z,	ty * y + c,		ty * z + s * x,	0,
-			tx * z + s * y,	ty * z - s * x,	t * z * z + c,	0,
-			0,				0,				0,				1
+          tx * x + c,     tx * y - s * z,  tx * z + s * y, 0,
+			tx * y + s * z, ty * y + c,      ty * z - s * x, 0,
+			tx * z - s * y, ty * z + s * x,  t * z * z + c,  0,
+			0,              0,               0,              1
         ]);
+
+//		this.multiply([
+//            tx * x + c,		tx * y + s * z,	tx * z - s * y,	0,
+//			tx * y - s * z,	ty * y + c,		ty * z + s * x,	0,
+//			tx * z + s * y,	ty * z - s * x,	t * z * z + c,	0,
+//			0,				0,				0,				1
+//        ]);
 
     	return this;
 

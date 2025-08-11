@@ -21,22 +21,29 @@ void main(void) {
 
 
 const FRAGMENT_LIST = [
-	"4ttGWM",
-	"MdyGzR",
-	"Ms2SD1",
-	"mtyGWy",
-	"tXB3zc",
-	"WdXBW4",
-	"Xd3GD4",
-	"Xds3zN",
-	"XsXXDn",
-	"XX3fDH"
+	"4ttGWM/Burning Fire",
+	"XsXXDn/Kaleidoscope 1",
+	"mtyGWy/Kaleidoscope 2",
+	"Xd3GD4/Fire Style 1",
+	"MdX3zr/Fire Style 2",
+	"3XXSWS/Fire Style 3",
+	"MdyGzR/Fog",
+	"Ms2SD1/Ocean",
+	"WdXBW4/Blue Sky",
+	"Wf3SWn/Horizon",
+	"tfcSW8/Chandelier",
+	"wctXWN/Vortex",
+	"wftSz4/Disk Pulsing",
+	"Xds3zN/Geometries",
+	"XX3fDH/Meteors",
+	"tXB3zc/Circle Style 1"
 ];
 
 
-
 window.addEventListener('load', function() {
-
+	
+	const linkShaderToy = document.getElementById('linkShaderToy');
+	
 	const webgl = new WGL.Renderer( WIDTH, HEIGHT );
 	
 	document.getElementById('main').appendChild( webgl.canvas );
@@ -74,7 +81,10 @@ window.addEventListener('load', function() {
 		if( fragId == '' ) return;
 		
 		FileLoader.Load( "frag/"+ fragId +".glsl", "text", function(frag) {
-		
+			
+			linkShaderToy.href = "https://www.shadertoy.com/view/"+ fragId;
+			linkShaderToy.innerHTML = "ShaderToy/"+ fragId;
+			
 			shader = webgl.createProgram( VERTEX, frag);
 			
 			webgl.setup( shader );
@@ -96,13 +106,15 @@ window.addEventListener('load', function() {
 	
 	let fragUl = document.createElement('ul');
 	
-	for( let fragId of FRAGMENT_LIST ) {
+	for( let item of FRAGMENT_LIST ) {
+		
+		let [ fragId, fragName ] = item.split('/');
 		
 		let li = document.createElement('li');
 			li.id = fragId;
 			
 		let a = document.createElement('a');
-			a.innerHTML = fragId;
+			a.innerHTML = fragName;
 			a.href = '#'+ fragId;
 		
 		li.appendChild(a);

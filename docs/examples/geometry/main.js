@@ -63,15 +63,12 @@ window.addEventListener('load', function() {
 
 
 	webgl.setup( shader );
-//	webgl.setUniformList({ projection, view });
 	
 	webgl.setUniform( 'projection', projection );
 	webgl.setUniform( 'view', view );
 
 	/// so precisa definir o atributo uma vez
 	webgl.setAttributeList( object );
-	
-	//webgl.setUniform( 'position', object.position );
 	
 	function animate() {
 		
@@ -82,13 +79,10 @@ window.addEventListener('load', function() {
 		webgl.clear( BLACK );
 		
 		webgl.setUniformList( object );
-	//	webgl.setUniform( 'rotate', object.rotate );
 		webgl.draw( 'TRIANGLES', object.index );
-		
 		
 		///
 		webgl.setUniform( 'color', WHITE );
-	//	webgl.draw( 'LINE_LOOP', object.index );
 		webgl.draw( 'LINE_STRIP', object.index );
 		
 		requestAnimationFrame( animate );
