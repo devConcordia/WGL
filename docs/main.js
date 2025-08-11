@@ -5,7 +5,7 @@ window.addEventListener('load', function() {
 	const ulIndex = document.getElementById('ulIndex');
 	const divMain = document.getElementById('divMain');
 	
-	function addTab( name, handler ) {
+	function addTab( name, handler, active = false ) {
 		
 		let li = document.createElement('li');
 			li.className = "nav-item";
@@ -19,6 +19,9 @@ window.addEventListener('load', function() {
 		li.appendChild( a );
 		ulIndex.appendChild( li );
 		
+		if( active ) {
+			handler({ target: a });
+		}
 	}
 	
 	function disableTabs() {
@@ -43,29 +46,34 @@ window.addEventListener('load', function() {
 		
 	}
 	
-	
-	addTab( 'Geometry', function() {
-		changeIFrame( 'examples/geometry/index.html' );
-	});
-	
-	addTab( 'Voronoi Noise', function() {
+	addTab( 'Voronoi Noise', function(evt) {
 		changeIFrame( 'examples/voronoi-noise/index.html' );
+		evt.target.classList.add('active');
+	}, true);
+	
+	addTab( 'Geometry', function(evt) {
+		changeIFrame( 'examples/geometry/index.html' );
+		evt.target.classList.add('active');
 	});
 	
-	addTab( 'Sobel Filter', function() {
+	addTab( 'Sobel Filter', function(evt) {
 		changeIFrame( 'examples/sobel-image/index.html' );
+		evt.target.classList.add('active');
 	});
 	
-	addTab( 'ShaderToy', function() {
+	addTab( 'ShaderToy', function(evt) {
 		changeIFrame( 'examples/shadertoy/index.html' );
+		evt.target.classList.add('active');
 	});
 	
-	addTab( 'Prism', function() {
+	addTab( 'Prism', function(evt) {
 		changeIFrame( 'examples/prism/index.html' );
+		evt.target.classList.add('active');
 	});
 	
-	addTab( 'Phong Light', function() {
+	addTab( 'Phong Light', function(evt) {
 		changeIFrame( 'examples/phong/index.html' );
+		evt.target.classList.add('active');
 	});
 	
 	

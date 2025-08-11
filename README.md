@@ -5,7 +5,7 @@ Este é um pequeno projeto de uma API que automatiza a utilização dos recursos
 
 Você pode acessar alguns exemplos do projeto [aqui](https://docs/index.html).
 
-## Exemplo
+## Exemplo de uso
 
 Para iniciar um renderizador.
 

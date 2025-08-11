@@ -4,7 +4,7 @@
 //import Matrix3 from "/module/math/Matrix/Matrix3.mjs";
 //import Matrix4 from "/module/math/Matrix/Matrix4.mjs";
 
-import WGL from "../../../source/index.mjs";
+import WGL from "../../wgl.mjs";
 
 
 
