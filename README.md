@@ -3,7 +3,7 @@
 
 Este é um pequeno projeto de uma API que automatiza a utilização dos recursos do WebGL.
 
-Você pode acessar alguns exemplos do projeto [aqui](https://docs/index.html).
+Você pode acessar alguns exemplos do projeto [aqui](https://devconcordia.github.io/WGL/).
 
 ## Exemplo de uso
 
