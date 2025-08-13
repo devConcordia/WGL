@@ -21,7 +21,7 @@ void main(void) {
 
 
 const FRAGMENT_LIST = [
-	"4ttGWM/Burning Fire",
+	"4ttGWM/Burning",
 	"XsXXDn/Kaleidoscope 1",
 	"mtyGWy/Kaleidoscope 2",
 	"Xd3GD4/Fire Style 1",
