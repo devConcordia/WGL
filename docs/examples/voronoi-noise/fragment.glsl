@@ -2,9 +2,6 @@ precision highp float;
 
 uniform float zoom;
 uniform vec2 resolution;
-uniform vec3 background;
-uniform vec3 foreground;
-
 
 /// @ref https://www.shadertoy.com/view/MslGD8
 vec2 rand( vec2 p ) {
@@ -15,7 +12,6 @@ vec2 rand( vec2 p ) {
 	return fract( sin(p) * 18.5453 );
 	
 }
-
 
 float voronoi( in vec2 x ) {
 	
@@ -42,7 +38,6 @@ float voronoi( in vec2 x ) {
 	
 }
 
-
 void main() {
 	
     vec2 point = gl_FragCoord.xy / max(resolution.x, resolution.y);
@@ -50,12 +45,8 @@ void main() {
     float v = voronoi( zoom * point );
 	
 	float s = clamp( v, 0.0, 1.0 );
+	vec3 bg = vec3( 1.0-point.x, point.x*point.y, 1.0-point.y );
 	
-	gl_FragColor = vec4( (foreground + background * vec3( s )) , 1.0 );
-	//gl_FragColor = vec4( vec3( 1.0 - s ) * .75, 1.0 );
-	
-//	float s = 1.0 - clamp( v, 0.0, 1.0 );
-	
-//	gl_FragColor = vec4( background - vec3( s ), 1.0 );
+	gl_FragColor = vec4( (bg * vec3( s )) , 1.0 );
 	
 }
