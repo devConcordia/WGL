@@ -27,6 +27,8 @@ const FRAGMENT_LIST = [
 	"Xd3GD4/Fire Style 1",
 	"MdX3zr/Fire Style 2",
 	"3XXSWS/Fire Style 3",
+	"XtyXzW/Glitch transform ",
+	"lsKSWR/Vignette",
 	"MdyGzR/Fog",
 	"Ms2SD1/Ocean",
 	"WdXBW4/Blue Sky",
@@ -34,7 +36,9 @@ const FRAGMENT_LIST = [
 	"tfcSW8/Chandelier",
 	"wctXWN/Vortex",
 	"wftSz4/Disk Pulsing",
-	"Xds3zN/Geometries",
+	"MsjSzz/Geometries 1",
+	"MsSGD1/Geometries 2",
+	"Xds3zN/Geometries 3",
 	"XX3fDH/Meteors",
 	"tXB3zc/Circle Style 1"
 ];
