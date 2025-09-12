@@ -3,6 +3,11 @@ import Program from './Program.mjs';
 import Buffer from './Buffer.mjs';
 import Texture from './Texture.mjs';
 
+/// flag to display log once time
+let LOG_SETUNIFORMLIST = false;
+let LOG_SETATTRIBUTELIST = false;
+
+
 /** Renderer
  *
  */
@@ -190,21 +195,21 @@ export default class Renderer {
 		
 	}
 	
-	/** setUniformList
+	/** setUniformFrom
 	 *
-	 *	@param {Object} list
+	 *	@param {Object} object
 	 */
-	setUniformList( list ) {
+	setUniformFrom( object ) {
 		
 		let gl = this.context;
 		
 		let uniforms = this.program.uniforms;
 		
-		for( let name in uniforms ) {
+		for( let key in uniforms ) {
 			
-			if( name in list ) {
+			if( key in object ) {
 
-				let value = list[ name ];
+				let value = object[ key ];
 
 				if( value.texture ) {
 					
@@ -221,7 +226,7 @@ export default class Renderer {
 					
 				}
 				
-				uniforms[ name ].set( value );
+				uniforms[ key ].set( value );
 				
 			}
 
@@ -250,21 +255,21 @@ export default class Renderer {
 		
 	}
 	
-	/** setAttributeList
+	/** setAttributeFrom
 	 *	
-	 *	@param {Object} list
+	 *	@param {Object} object
 	 */
-	setAttributeList( list ) {
+	setAttributeFrom( object ) {
 		
 		let attributes = this.program.attributes;
 		let gl = this.context;
 		
-		for( let name in attributes ) {
+		for( let key in attributes ) {
 
-			if( name in list ) {
+			if( key in object ) {
 				
-				let { location, size } = attributes[ name ];
-				let { buffer, length } = list[ name ];
+				let { location, size } = attributes[ key ];
+				let { buffer, length } = object[ key ];
 				
 				gl.bindBuffer( gl.ARRAY_BUFFER, buffer );
 				gl.vertexAttribPointer( location, size, gl.FLOAT, false, 0, 0 );
@@ -277,6 +282,7 @@ export default class Renderer {
 		}
 		
 	}
+	
 	
 	/** draw
 	 *	
@@ -304,5 +310,33 @@ export default class Renderer {
 		
 	}
 	
+	
+	/* deprecate */ 
+	
+	setUniformList( object ) {
+		
+		if( !LOG_SETUNIFORMLIST ) {
+			
+			LOG_SETUNIFORMLIST = true;
+			console.warn("Renderer.setUniformList: is deprecated, use setUniformFrom instead")
+		
+		}
+		
+		this.setUniformFrom( object );
+		
+	}
+	
+	setAttributeList( object ) {
+		
+		if( !LOG_SETATTRIBUTELIST ) {
+			
+			LOG_SETATTRIBUTELIST = true;
+			console.warn("Renderer.setAttributeList: is deprecated, use setAttributeFrom instead")
+		
+		}
+		
+		this.setAttributeFrom( object );
+		
+	}
+	
 }
-
