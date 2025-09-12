@@ -10,20 +10,16 @@
 			a { text-decoration:none; color:#0e86e8; }
 			
 			ul { list-style:none; }
-			li { padding:10px; cursor:pointer; }
-			li:nth-of-type(odd) { background-color:#fafafa; }
-			li:target { background:#eee; }
+			li { padding:10px; cursor:pointer; display:inline-block; }
+			li:nth-of-type(odd) { color:#3899e8; }
+			li:target { color:#a9d3f5; }
 			
 			
 			.container {
-				display:flex;
 				width:100vw;
 				height:100vh;
 			}
 			
-			div#index {
-				overflow-y:scroll;
-			}
 			
 			div#main {
 				width:100%;
@@ -36,11 +32,11 @@
 	<body>
 		
 		<div class="container" >
-			<div id="index" ></div>
 			<div id="main" >
-				<p>Esses são alguns testes implementando os exemplos do ShaderToy.</p>
-				<p>Selecione um item no indice à esquerada.</p>
+				<p>Selecione um dos exemplos a baixo</p>
+				<div id="index" ></div>
 				<p>Visite a página original em <a id="linkShaderToy" href="https://www.shadertoy.com/">ShaderToy</a></p>
+				
 			</div>
 		</div>
 	</body>
