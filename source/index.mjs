@@ -5,6 +5,8 @@ import Vector4 from './math/Vector4.mjs';
 import Matrix3 from './math/Matrix3.mjs';
 import Matrix4 from './math/Matrix4.mjs';
 import Color from './math/Color.mjs';
+import Color3 from './math/Color3.mjs';
+import Color4 from './math/Color4.mjs';
 
 import Geometry3 from './geometry/Geometry3.mjs';
 
@@ -18,5 +20,7 @@ export default {
 	Matrix3,
 	Matrix4,
 	Color,
+	Color3,
+	Color4,
 	Geometry3
 }

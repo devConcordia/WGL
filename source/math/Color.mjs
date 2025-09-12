@@ -298,7 +298,7 @@ function cmyk_to_rgb( c, m, y, k ) {
 
 };
 
-
+let LOG_COLOR_CONSTRUCTOR = false;
 
 /** Color<Float32Array[3]|Float32Array[4]>
  *	
@@ -329,7 +329,12 @@ export default class Color extends Float32Array {
 	 *	@return {Float32Array(4)}
 	 */
 	constructor( r, g, b, a ) {
-
+		
+		if( !LOG_COLOR_CONSTRUCTOR ) {
+			console.warn( 'Color was deprecated! Use Color3 or Color4 instead' );
+			LOG_COLOR_CONSTRUCTOR = true;
+		}
+		
 		if( arguments.length < 3 ) {
 
 			[ r, g, b ] = binary_to_rgb( arguments[0] );
