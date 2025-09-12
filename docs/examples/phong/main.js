@@ -7,7 +7,19 @@
 
 import WGL from "../../wgl.mjs";
 
-import PhongMaterial from './PhongMaterial.mjs';
+class PhongMaterial {
+	
+	constructor( ambient, diffuse, specular, shininess = 32 ) {
+		
+		this.diffuse = new WGL.Color( diffuse );
+		this.specular = new WGL.Color( specular );
+		this.ambient = new WGL.Color( ambient );
+		this.shininess = shininess;
+		
+	}
+	
+}
+
 
 async function getScript( url ) {
 	
