@@ -183,8 +183,9 @@ function getUniformLocations({ gl, program, uniforms }, script ) {
 		
         for( let item of list ) {
 			
-            let subMatch = item.match(/(\w+)(\[\d+\])?/);
-
+         //   let subMatch = item.match(/(\w+)(\[\d+\])?/);
+            let subMatch = item.replace(/\s/gm, '').match(/(\w+)(\[\d+\])?/);
+			
             if( subMatch ) {
 				
                 let name = subMatch[1];
